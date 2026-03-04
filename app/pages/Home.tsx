@@ -6,6 +6,8 @@ import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
+import SlidingCards from "../components/Sliding";
+import CollegeLocation from "../components/CollegeLocation";
 
 export default function Home() {
   return (
@@ -14,7 +16,11 @@ export default function Home() {
     <Hero />
     <CollegeIntro />
     <CoursesSection />
+  
+    <SlidingCards />
+    
     <Gallery />
+    <CollegeLocation />
     <Footer />
     {/* <div className="h-[5000px]">
 

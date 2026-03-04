@@ -1,260 +1,133 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDownIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-interface NavItem {
-  name: string;
-  href: string;
-  dropdown?: {
-    title: string;
-    items: { name: string; href: string; description?: string }[];
-  };
-}
-
-const navItems: NavItem[] = [
-  { name: "Home", href: "/" },
+const navLinks = [
   {
-    name: "Events",
-    href: "/events",
-    dropdown: {
-      title: "List of all Events",
-      items: [
-        { name: "All Events", href: "/events", description: "View all upcoming events" },
-        { name: "Workshops", href: "/events/workshops", description: "Technical workshops and seminars" },
-        { name: "Cultural Fest", href: "/events/cultural", description: "Annual cultural festival" },
-        { name: "Sports Day", href: "/events/sports", description: "Inter-college sports competition" },
-        {name: "NSS" ,href:"/events/nss" , description:"Events held by NSS"},
-      ],
-    },
+    name: "Institutional",
+    items: ["About Us", "Vision & Mission", "Management", "Principal's Desk", "Governing Council"],
   },
   {
-    name: "Facilities",
-    href: "/facilities",
-    dropdown: {
-      title: "Our Facilities",
-      items: [
-        { name: "Library", href: "/facilities/library", description: "State-of-the-art library" },
-        { name: "Computer Lab", href: "/facilities/labs", description: "Modern research labs" },
-        { name: "Girls Hostel", href: "/facilities/hostel", description: "Comfortable accommodation" },
-        { name: "Sports Complex", href: "/facilities/sports", description: "World-class sports facilities" },
-        { name: "Cafeteria", href: "/facilities/cafeteria", description: "Healthy dining options" },
-      ],
-    },
+    name: "Academics",
+    items: ["Courses Offered", "Admission Process", "Departments", "Calendar of Events", "Library"],
   },
   {
-    name: "About",
-    href: "/about",
-    dropdown: {
-      title: "About Us",
-      items: [
-        { name: "Our Story", href: "/about/story", description: "History and mission" },
-        { name: "Vision & Mission", href: "/about/vision", description: "Our goals and values" },
-        { name: "Leadership", href: "/about/leadership", description: "Meet our leadership team" },
-        { name: "Awards & Recognition", href: "/about/awards", description: "Our achievements" },
-      ],
-    },
+    name: "Campus Life",
+    items: ["Facilities", "NSS & NCC", "Sports & Games", "Cultural Activities", "Clubs & Associations"],
   },
   {
-    name: "Faculty",
-    href: "/faculty",
-    dropdown: {
-      title: "Our Faculty",
-      items: [
-        
-        { name: "Teaching Staff", href: "/faculty/heads", description: "Department leadership" },
-        { name: "Staff", href: "/faculty/research", description: "Non-Teaching Staff" }
-      ],
-    },
-  },
-  {
-    name: "Courses",
-    href: "/courses",
-    dropdown: {
-      title: "Academic Programs",
-      items: [
-        { name: "B.C.A", href: "/courses/undergraduate", description: "Bachelor's of Computer Applications" },
-        { name: "B.Com", href: "/courses/postgraduate", description: "Bachelor's in Commmerce" },
-        { name: "B.A", href: "/courses/doctoral", description: "Bachleor's in Arts" },
-      ],
-    },
+    name: "Student Corner",
+    items: ["Scholarships", "Placement Cell", "Alumni", "Examination", "Results"],
   },
 ];
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const handleDropdownToggle = (itemName: string) => {
-    setOpenDropdown(openDropdown === itemName ? null : itemName);
-  };
-
-  const closeDropdown = () => {
-    setOpenDropdown(null);
-  };
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300  ${
-        isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-lg"
-          : "bg-white/90 backdrop-blur-sm"
-      }`}
-    >
-      <div className="max-w-7xl pl-4 sm:pl-6">
-        <div className="flex items-center justify-between h-16 gap-4">
-          {/* Logo and College Name */}
-          <div className="flex items-center space-x-3 shrink-0">
-            <div className="h-12 w-12 bg-linear-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center shadow-lg transform hover:scale-105 transition-transform duration-200">
-              <span className="text-white font-bold text-xl">MSRS</span>
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                M.S.R.S College
-              </h1>
-             
-            </div>
+    <nav className="fixed top-0 z-100 w-full border-b border-slate-100 bg-white/90 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        
+        {/* Brand Identity */}
+        <div className="flex items-center gap-3 group cursor-pointer">
+          <div className="h-12 w-12 rounded-2xl bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-100 transition-transform group-hover:rotate-3">
+            <span className="text-2xl font-black text-white italic">M</span>
           </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1 flex-1 justify-center ">
-            {navItems.map((item) => (
-              <div
-                key={item.name}
-                className="relative"
-                onMouseEnter={() => item.dropdown && handleDropdownToggle(item.name)}
-                onMouseLeave={closeDropdown}
-              >
-                <a
-                  href={item.href}
-                  className="px-4 py-2 text-md  font-semibold text-gray-700 hover:text-blue-600 transition-colors duration-200 relative group"
-                >
-                  {item.name}
-                  {item.dropdown && (
-                    <ChevronDownIcon className="inline-block ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
-                  )}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-
-                {/* Dropdown Menu */}
-                {item.dropdown && openDropdown === item.name && (
-                  <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
-                    <div className="p-4 bg-linear-to-r from-blue-50 to-purple-50 border-b border-gray-100">
-                      <h3 className="font-semibold text-gray-900">{item.dropdown.title}</h3>
-                    </div>
-                    <div className="py-2">
-                      {item.dropdown.items.map((dropdownItem, idx) => (
-                        <a
-                          key={idx}
-                          href={dropdownItem.href}
-                          className="block px-4 py-3 hover:bg-blue-50 transition-colors duration-150 group"
-                          onClick={closeDropdown}
-                        >
-                          <div className="font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
-                            {dropdownItem.name}
-                          </div>
-                          {dropdownItem.description && (
-                            <div className="text-sm text-gray-500 mt-1">{dropdownItem.description}</div>
-                          )}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-md text-gray-700 hover:bg-gray-100 transition-colors"
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? (
-                <XMarkIcon className="h-6 w-6" />
-              ) : (
-                <Bars3Icon className="h-6 w-6" />
-              )}
-            </button>
+          <div className="flex flex-col">
+            <span className="text-xl font-black leading-none text-slate-900 tracking-tighter">MSRS COLLEGE</span>
+            <span className="text-[11px] font-bold text-blue-600 tracking-[0.2em] uppercase mt-1">Shirva</span>
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden py-4 space-y-2 animate-in slide-in-from-top duration-200">
-            {navItems.map((item) => (
-              <div key={item.name} className="border-b border-gray-100 last:border-0">
-                <div className="flex items-center justify-between py-3">
-                  <a
-                    href={item.href}
-                    className="text-gray-700 font-medium hover:text-blue-600 transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
+        {/* Navigation - Desktop */}
+        <div className="hidden lg:flex lg:items-center lg:gap-2">
+          <a href="#" className="px-5 py-2 text-[15px] font-bold text-slate-600 hover:text-blue-600 transition-colors">Home</a>
+          
+          {navLinks.map((link) => (
+            <div 
+              key={link.name}
+              className="relative"
+              onMouseEnter={() => setActiveMenu(link.name)}
+              onMouseLeave={() => setActiveMenu(null)}
+            >
+              <button className={`flex items-center gap-1.5 px-5 py-2 text-[15px] font-bold transition-all duration-300 rounded-full ${activeMenu === link.name ? 'text-blue-600 bg-blue-50' : 'text-slate-600 hover:bg-slate-50'}`}>
+                {link.name}
+                <ChevronDownIcon className={`h-4 w-4 transition-transform duration-500 ${activeMenu === link.name ? "rotate-180" : ""}`} />
+              </button>
+
+              <AnimatePresence>
+                {activeMenu === link.name && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                    transition={{ duration: 0.2, ease: "circOut" }}
+                    className="absolute left-0 mt-3 w-64 overflow-hidden rounded-3xl border border-slate-100 bg-white p-3 shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
                   >
-                    {item.name}
-                  </a>
-                  {item.dropdown && (
-                    <button
-                      onClick={() => handleDropdownToggle(item.name)}
-                      className="p-1 text-gray-500 hover:text-blue-600 transition-colors"
-                    >
-                      <ChevronDownIcon
-                        className={`h-5 w-5 transition-transform duration-200 ${
-                          openDropdown === item.name ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
-                  )}
-                </div>
-                {item.dropdown && openDropdown === item.name && (
-                  <div className="pl-4 pb-3 space-y-2 animate-in slide-in-from-top duration-200">
-                    {item.dropdown.items.map((dropdownItem, idx) => (
-                      <a
-                        key={idx}
-                        href={dropdownItem.href}
-                        className="block py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {dropdownItem.name}
-                      </a>
-                    ))}
-                  </div>
+                    <div className="space-y-1">
+                      {link.items.map((item) => (
+                        <a
+                          key={item}
+                          href = {`${link}`}
+                          className="group flex items-center justify-between rounded-xl px-4 py-3 text-[14px] font-bold text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-all"
+                        >
+                          {item}
+                          <motion.div 
+                            initial={{ scale: 0 }}
+                            whileHover={{ scale: 1 }}
+                            className="h-1.5 w-1.5 rounded-full bg-blue-600 opacity-0 group-hover:opacity-100 transition-all"
+                          />
+                        </a>
+                      ))}
+                    </div>
+                  </motion.div>
                 )}
-              </div>
-            ))}
-            <div className="pt-4">
-              <a
-                href="/apply"
-                className="block w-full text-center px-6 py-3 bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg shadow-md hover:shadow-xl transition-all duration-200"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Apply Now
-              </a>
+              </AnimatePresence>
             </div>
-          </div>
-        )}
+          ))}
+        </div>
+
+        {/* Global Action */}
+        <div className="hidden lg:block">
+          <button className="group relative flex items-center gap-2 overflow-hidden rounded-full bg-slate-900 px-7 py-3 text-[14px] font-bold text-white transition-all hover:bg-blue-600 shadow-xl shadow-slate-200">
+            Apply Now
+            <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+          </button>
+        </div>
+
+        {/* Mobile Toggle */}
+        <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-2 text-slate-900 bg-slate-50 rounded-xl">
+          {mobileOpen ? <XMarkIcon className="h-7 w-7" /> : <Bars3Icon className="h-7 w-7" />}
+        </button>
       </div>
 
-      {/* Apply Now Button - Extreme Right */}
-      <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 pr-4 sm:pr-6">
-        <a
-          href="/apply"
-          className="px-6 py-2.5 bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-200 hover:from-blue-700 hover:to-purple-700"
-        >
-          Apply Now
-        </a>
-      </div>
+      {/* Mobile Menu - Custom Drawer style */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div 
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 100 }}
+            className="fixed inset-0 top-20 z-50 lg:hidden bg-white px-8 py-10 overflow-y-auto"
+          >
+            <div className="flex flex-col gap-10">
+              {navLinks.map((link) => (
+                <div key={link.name}>
+                  <h4 className="text-[12px] font-black uppercase tracking-[0.3em] text-blue-600 mb-4">{link.name}</h4>
+                  <div className="flex flex-col gap-5">
+                    {link.items.map((item) => (
+                      <a key={item} href="#" className="text-xl font-bold text-slate-900 active:text-blue-600">{item}</a>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
-

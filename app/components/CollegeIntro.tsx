@@ -3,98 +3,123 @@
 import { AcademicCapIcon, BookOpenIcon, UserGroupIcon } from "@heroicons/react/24/outline";
 import { motion, Variants } from "framer-motion";
 
-// Animation Variants
 const containerVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    y: 0,
     transition: {
-      staggerChildren: 0.13,
-      duration: 0.7,
-      ease: "easeOut",
+      staggerChildren: 0.2,
+      duration: 0.8,
     },
   },
 };
 
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 const CollegeIntro = () => {
   return (
-    <section className="py-16 md:py-24 bg-linear-to-r from-blue-50 via-white to-pink-50">
-      <div className="container mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        {/* Main Heading & CTA */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="show"
-          className="text-center mb-12"
-        >
-          <div className="bg-linear-to-r from-pink-200 via-purple-200 to-orange-200 shadow-md  rounded-full">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4 py-4">
-            Mulki Sunder Ram Shetty College
-          </h2>
+    <section className="relative overflow-hidden py-20 lg:py-32 bg-slate-50">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-100/50 blur-3xl" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-pink-100/50 blur-3xl" />
+      </div>
 
-          </div>
-          
-          <p className="text-lg md:text-xl font-semibold text-blue-700 max-w-4xl mx-auto mb-8 italic">
-            A Legacy of Excellence in Higher Education
-          </p>
-          <div>
-            <button className="px-8 py-3 bg-blue-700 text-white rounded-full shadow hover:bg-blue-900 transition-colors text-lg font-semibold">
-              Admissions Open &rarr;
-            </button>
-          </div>
-        </motion.div>
-
-        {/* Unique Description Section */}
+      <div className="container relative mx-auto max-w-7xl px-6">
+        {/* Header Section */}
         <motion.div
-          className="max-w-5xl mx-auto bg-white rounded-3xl shadow-xl p-10 md:p-16 border border-blue-100"
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.4 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
         >
-          {/* Key Descriptions in a grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-gray-800 font-medium">
+          <motion.span 
+            variants={itemVariants}
+            className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full"
+          >
+            Since 1980
+          </motion.span>
+          
+          <motion.h2 
+            variants={itemVariants}
+            className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight"
+          >
+            Mulki Sunder Ram <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-indigo-500">Shetty College</span>
+          </motion.h2>
+
+          <motion.p 
+            variants={itemVariants}
+            className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed"
+          >
+            A Legacy of Excellence in Higher Education, dedicated to shaping the next generation of global leaders and innovators.
+          </motion.p>
+
+          <motion.div variants={itemVariants}>
+            <button className="group relative inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-xl hover:bg-blue-700 shadow-lg shadow-blue-200 active:scale-95">
+              Admissions Open
+              <svg className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </button>
+          </motion.div>
+        </motion.div>
+
+        {/* Feature Cards */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
+          {features.map((feature, idx) => (
             <motion.div
-              className="flex flex-col items-center text-center p-6 bg-linear-to-br from-blue-100 to-blue-200 rounded-xl shadow-md border border-blue-300"
-              variants={cardVariants}
+              key={idx}
+              variants={itemVariants}
+              whileHover={{ y: -10 }}
+              className="relative p-8 bg-white border border-slate-100 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300"
             >
-              <AcademicCapIcon className="w-14 h-14 mb-4 text-blue-600" />
-              <h3 className="text-xl font-semibold mb-2">Established in 1980</h3>
-              <p>
-                Over four decades of dedicated academic excellence and nurturing future leaders.
+              <div className={`inline-flex p-4 rounded-2xl mb-6 ${feature.bgColor}`}>
+                <feature.icon className={`w-8 h-8 ${feature.iconColor}`} />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
+              <p className="text-slate-600 leading-relaxed">
+                {feature.description}
               </p>
             </motion.div>
-            <motion.div
-              className="flex flex-col items-center text-center p-6 bg-linear-to-br from-pink-100 to-pink-200 rounded-xl shadow-md border border-pink-300"
-              variants={cardVariants}
-            >
-              <BookOpenIcon className="w-14 h-14 mb-4 text-pink-600" />
-              <h3 className="text-xl font-semibold mb-2">Affiliated with Mangalore University</h3>
-              <p>
-                Providing recognized and diverse programs tailored to empower every student.
-              </p>
-            </motion.div>
-            <motion.div
-              className="flex flex-col items-center text-center p-6 bg-linear-to-br from-purple-100 to-purple-200 rounded-xl shadow-md border border-purple-300"
-              variants={cardVariants}
-            >
-              <UserGroupIcon className="w-14 h-14 mb-4 text-purple-600" />
-              <h3 className="text-xl font-semibold mb-2">Community Driven</h3>
-              <p>
-                Committed to the development and upliftment of Kaup Taluk and surrounding regions.
-              </p>
-            </motion.div>
-          </div>
+          ))}
         </motion.div>
       </div>
     </section>
   );
 };
+
+const features = [
+  {
+    title: "Established Excellence",
+    description: "Over four decades of dedicated academic excellence and nurturing future leaders since 1980.",
+    icon: AcademicCapIcon,
+    bgColor: "bg-blue-50",
+    iconColor: "text-blue-600",
+  },
+  {
+    title: "University Affiliated",
+    description: "Affiliated with Mangalore University, providing recognized programs tailored to empower students.",
+    icon: BookOpenIcon,
+    bgColor: "bg-indigo-50",
+    iconColor: "text-indigo-600",
+  },
+  {
+    title: "Community Impact",
+    description: "Deeply committed to the upliftment and academic development of Kaup Taluk and surrounding regions.",
+    icon: UserGroupIcon,
+    bgColor: "bg-rose-50",
+    iconColor: "text-rose-600",
+  },
+];
 
 export default CollegeIntro;
