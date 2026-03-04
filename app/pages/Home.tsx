@@ -22,9 +22,7 @@ export default function Home() {
     <Gallery />
     <CollegeLocation />
     <Footer />
-    {/* <div className="h-[5000px]">
-
-    </div> */}
+    
 
     </div>
   );
