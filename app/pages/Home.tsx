@@ -12,7 +12,7 @@ import CollegeLocation from "../components/CollegeLocation";
 export default function Home() {
   return (
     <div className="bg-white">
-    <Navbar />
+ 
     <Hero />
     <CollegeIntro />
     <CoursesSection />
@@ -21,7 +21,7 @@ export default function Home() {
     
     <Gallery />
     <CollegeLocation />
-    <Footer />
+  
     
 
     </div>

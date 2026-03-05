@@ -7,19 +7,19 @@ import { ChevronDownIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outli
 const navLinks = [
   {
     name: "Institutional",
-    items: ["About Us", "Vision & Mission", "Management", "Principal's Desk", "Governing Council"],
+    items: [{label:"About Us" , path:"/about-us"}, {label:"Vision & Mission", path:"/vision-mission"},{label:"Committee", path:"/committee"}, {label:"Management", path:"/management"}, {label:"Principal's Desk", path:"/principal-desk"}, {label:"Teaching Staff", path:"/teaching-staff"}],
   },
   {
     name: "Academics",
-    items: ["Courses Offered", "Admission Process", "Departments", "Calendar of Events", "Library"],
+    items: [{label:"Courses", path:"/courses"}, {label:"Admission Process", path:"/admission"}, {label:"Calendar of Events", path:"/calendar"}, {label:"Library", path:"/library"}],
   },
   {
     name: "Campus Life",
-    items: ["Facilities", "NSS & NCC", "Sports & Games", "Cultural Activities", "Clubs & Associations"],
+    items: [{label:"Facilities", path:"/facilities"}, {label:"NSS", path:"/nss"}, {label:"Sports & Games", path:"/sports-games"}, {label:"Cultural Activities", path:"/cultural-activities"}, {label:"Clubs & Associations", path:"/clubs-associations"}],
   },
   {
     name: "Student Corner",
-    items: ["Scholarships", "Placement Cell", "Alumni", "Examination", "Results"],
+    items: [{label:"Scholarships", path:"/scholarships"}, {label:"Placement Cell", path:"/placement-cell"}, {label:"Alumni", path:"/alumni"}, {label:"Examination", path:"/examination"}, {label:"Results", path:"/results"}],
   },
 ];
 
@@ -33,8 +33,8 @@ export default function Navbar() {
         
         {/* Brand Identity */}
         <div className="flex items-center gap-3 group cursor-pointer">
-          <div className="h-12 w-12 rounded-2xl bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-100 transition-transform group-hover:rotate-3">
-            <span className="text-2xl font-black text-white italic">M</span>
+          <div className=" rounded-full bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-100 transition-transform group-hover:rotate-3">
+            <img src="/college_logo.jpg" alt="logo" className="rounded-full h-12 w-12 p-0.5" />
           </div>
           <div className="flex flex-col">
             <span className="text-xl font-black leading-none text-slate-900 tracking-tighter">MSRS COLLEGE</span>
@@ -44,7 +44,7 @@ export default function Navbar() {
 
         {/* Navigation - Desktop */}
         <div className="hidden lg:flex lg:items-center lg:gap-2">
-          <a href="#" className="px-5 py-2 text-[15px] font-bold text-slate-600 hover:text-blue-600 transition-colors">Home</a>
+          <a href="/" className="px-5 py-2 text-[15px] font-bold text-slate-600 hover:text-blue-600 transition-colors">Home</a>
           
           {navLinks.map((link) => (
             <div 
@@ -70,11 +70,11 @@ export default function Navbar() {
                     <div className="space-y-1">
                       {link.items.map((item) => (
                         <a
-                          key={item}
-                          href = {`${link}`}
+                          key={item.label}
+                          href = {item.path}
                           className="group flex items-center justify-between rounded-xl px-4 py-3 text-[14px] font-bold text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-all"
                         >
-                          {item}
+                          {item.label}
                           <motion.div 
                             initial={{ scale: 0 }}
                             whileHover={{ scale: 1 }}
@@ -119,7 +119,7 @@ export default function Navbar() {
                   <h4 className="text-[12px] font-black uppercase tracking-[0.3em] text-blue-600 mb-4">{link.name}</h4>
                   <div className="flex flex-col gap-5">
                     {link.items.map((item) => (
-                      <a key={item} href="#" className="text-xl font-bold text-slate-900 active:text-blue-600">{item}</a>
+                      <a key={item.label} href={item.path} className="text-xl font-bold text-slate-900 active:text-blue-600">{item.label}</a>
                     ))}
                   </div>
                 </div>
