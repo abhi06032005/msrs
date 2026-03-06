@@ -15,11 +15,11 @@ const navLinks = [
   },
   {
     name: "Campus Life",
-    items: [{label:"Facilities", path:"/facilities"}, {label:"NSS", path:"/nss"}, {label:"Sports & Games", path:"/sports-games"}, {label:"Cultural Activities", path:"/cultural-activities"}, {label:"Clubs & Associations", path:"/clubs-associations"}],
+    items: [{label:"Facilities", path:"/facilities"}, {label:"NSS", path:"/nss"}, {label:"Sports & Games", path:"/sports-games"}, {label:"Cultural Activities", path:"/cultural-activities"}, {label:"Rangers & Rovers", path:"/rangers-rovers"}],
   },
   {
     name: "Student Corner",
-    items: [{label:"Scholarships", path:"/scholarships"}, {label:"Placement Cell", path:"/placement-cell"}, {label:"Alumni", path:"/alumni"}, {label:"Examination", path:"/examination"}, {label:"Results", path:"/results"}],
+    items: [{label:"Scholarships", path:"/scholarship"}, {label:"Placement Cell", path:"/placement-cell"}, {label:"Alumni", path:"/alumni"}, {label:"Examination", path:"/examination"}, {label:"Results", path:"/results"}],
   },
 ];
 
