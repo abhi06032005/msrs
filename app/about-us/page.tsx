@@ -1,5 +1,6 @@
 import React from 'react';
 import { Award, BookOpen, MapPin, Trophy } from 'lucide-react';
+import Navbar2 from '../components/Navbar2';
 
 const HistorySection: React.FC = () => {
   const accreditationData = [
@@ -10,16 +11,18 @@ const HistorySection: React.FC = () => {
   ];
 
   return (
+    <>
+    <Navbar2 />
     <section className="max-w-5xl mx-auto p-6 md:p-12 bg-white text-gray-800 mt-30">
       {/* Header & Philosophy */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-6">Our History</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-6">Our History</h2>
         <p className="text-lg leading-relaxed mb-8 italic text-gray-600">
           "Vidyavardhaka Sangha" – Aimed at spreading education among the rural people who are the backbone of the country.
         </p>
         
-        <div className="bg-blue-50 border-l-4 border-blue-900 p-6 rounded-r-lg shadow-sm">
-          <blockquote className="text-xl font-medium text-blue-950">
+        <div className="bg-purple-50 border-l-4 border-purple-900 p-6 rounded-r-lg shadow-sm">
+          <blockquote className="text-xl font-medium text-purple-950">
             “When Wealth is lost, nothing is lost; <br />
             When Health is lost, something is lost; <br />
             When Character is lost, everything is lost.”
@@ -30,7 +33,7 @@ const HistorySection: React.FC = () => {
       <div className="grid md:grid-cols-2 gap-12 mb-12">
         {/* Founding Details */}
         <div>
-          <h3 className="flex items-center text-2xl font-semibold mb-4 text-blue-800">
+          <h3 className="flex items-center text-2xl font-semibold mb-4 text-purple-800">
             <BookOpen className="mr-2" /> Foundation
           </h3>
           <p className="mb-4">
@@ -46,7 +49,7 @@ const HistorySection: React.FC = () => {
 
         {/* Facilities */}
         <div>
-          <h3 className="flex items-center text-2xl font-semibold mb-4 text-blue-800">
+          <h3 className="flex items-center text-2xl font-semibold mb-4 text-purple-800">
             <Trophy className="mr-2" /> Infrastructure
           </h3>
           <p className="mb-4">
@@ -62,13 +65,13 @@ const HistorySection: React.FC = () => {
 
       {/* Accreditation Timeline */}
       <div className="bg-gray-50 p-8 rounded-xl shadow-inner">
-        <h3 className="flex items-center text-2xl font-semibold mb-8 text-blue-800">
+        <h3 className="flex items-center text-2xl font-semibold mb-8 text-purple-800">
           <Award className="mr-2" /> NAAC Accreditation Journey
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {accreditationData.map((item, index) => (
-            <div key={index} className="bg-white p-4 rounded-lg shadow-sm border-t-4 border-blue-500">
-              <span className="text-sm font-bold text-blue-500">{item.year}</span>
+            <div key={index} className="bg-white p-4 rounded-lg shadow-sm border-t-4 border-purple-500">
+              <span className="text-sm font-bold text-purple-500">{item.year}</span>
               <div className="text-2xl font-bold text-gray-900 my-1">Grade {item.grade}</div>
               <p className="text-xs text-gray-500 uppercase tracking-wide">{item.details}</p>
             </div>
@@ -84,6 +87,8 @@ const HistorySection: React.FC = () => {
         </div>
       </div>
     </section>
+    </>
+    
   );
 };
 

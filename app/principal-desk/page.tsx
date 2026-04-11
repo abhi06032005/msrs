@@ -1,31 +1,34 @@
 import React from 'react';
 import { Mail, GraduationCap, Clock, Quote, Award } from 'lucide-react';
+import Navbar2 from '../components/Navbar2';
 
 const PrincipalProfile: React.FC = () => {
   return (
+    <>
+    <Navbar2 />
     <section className="max-w-5xl mx-auto my-12 p-1 px-4 font-sans mt-30">
       <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 flex flex-col md:flex-row">
         
         {/* Left Side: Profile Image & Info */}
-        <div className="bg-blue-900 md:w-1/3 p-10 text-white flex flex-col justify-center items-center text-center">
+        <div className="bg-purple-900 md:w-1/3 p-10 text-white flex flex-col justify-center items-center text-center">
           
           {/* principal image */}
           <div className="relative mb-6">
             {/* White border-ring for the image */}
-            <div className="absolute inset-0 rounded-full border-4 border-blue-700 shadow-inner"></div>
+            <div className="absolute inset-0 rounded-full border-4 border-purple-700 shadow-inner"></div>
             
             <img 
               src="/principal.png" 
               alt="Dr. Mithun Chakravarthy"
-              className="w-40 h-40 rounded-full object-cover border-8 border-blue-800 shadow-xl"
+              className="w-40 h-40 rounded-full object-cover border-8 border-purple-800 shadow-xl"
             />
           </div>
 
           <h2 className="text-2xl font-bold mb-1">Dr. Mithun Chakravarthy</h2>
-          <p className="text-blue-200 text-sm mb-4">M.A, M.Phil, Ph.D, K-SET</p>
+          <p className="text-purple-200 text-sm mb-4">M.A, M.Phil, Ph.D, K-SET</p>
           
           <div className="space-y-4 mt-6 w-full">
-            <div className="flex items-center justify-center gap-2 bg-blue-800/50 py-2.5 px-4 rounded-full">
+            <div className="flex items-center justify-center gap-2 bg-purple-800/50 py-2.5 px-4 rounded-full">
               <Clock size={18} className="text-amber-400" />
               <span className="text-sm font-medium">20 Years Experience</span>
             </div>
@@ -50,7 +53,7 @@ const PrincipalProfile: React.FC = () => {
               <Award size={16} className="mr-2" /> From the Principal's Desk
             </h3>
             
-            <h4 className="text-3xl md:text-4xl font-extrabold text-blue-950 mb-7 tracking-tight">
+            <h4 className="text-3xl md:text-4xl font-extrabold text-purple-950 mb-7 tracking-tight">
               A Vision of Academic Empowerment
             </h4>
             
@@ -68,7 +71,7 @@ const PrincipalProfile: React.FC = () => {
                 compassionate leaders of tomorrow.
               </p>
               
-              <p className="font-medium italic text-blue-900 border-l-4 border-amber-400 pl-4 py-1">
+              <p className="font-medium italic text-purple-900 border-l-4 border-amber-400 pl-4 py-1">
                 "Our goal is to ensure that every student who walks through these doors leaves 
                 not just with a degree, but with the character to change the world."
               </p>
@@ -86,6 +89,7 @@ const PrincipalProfile: React.FC = () => {
 
       </div>
     </section>
+    </>
   );
 };
 

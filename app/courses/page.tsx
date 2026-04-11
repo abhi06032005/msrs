@@ -1,16 +1,17 @@
 "use client";
 import React from 'react';
 import { Laptop, Briefcase, BookOpen, CheckCircle, GraduationCap } from 'lucide-react';
+import Navbar2 from '../components/Navbar2';
 
 const Courses: React.FC = () => {
   const courseList = [
     {
       title: "BCA",
       fullName: "Bachelor of Computer Applications",
-      icon: <Laptop className="text-blue-600" size={32} />,
+      icon: <Laptop className="text-purple-600" size={32} />,
       description: "Designed for students who want to delve into the world of computer languages and information technology.",
       highlights: ["Software Development", "Database Management", "Web Technologies", "Data Structures"],
-      color: "border-blue-500"
+      color: "border-purple-500"
     },
     {
       title: "B.Com",
@@ -31,11 +32,13 @@ const Courses: React.FC = () => {
   ];
 
   return (
+    <>
+    <Navbar2 />
     <section className="py-20 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3">Academic Programs</h2>
+          <h2 className="text-sm font-bold text-purple-600 uppercase tracking-widest mb-3">Academic Programs</h2>
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Choose Your Path</h1>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
             We offer specialized undergraduate programs tailored to meet the evolving demands of the global job market.
@@ -70,7 +73,7 @@ const Courses: React.FC = () => {
                 ))}
               </div>
 
-              <button className="w-full py-4 bg-gray-900 text-white rounded-xl font-bold uppercase tracking-widest text-xs hover:bg-blue-600 transition-colors flex items-center justify-center gap-2 group">
+              <button className="w-full py-4 bg-gray-900 text-white rounded-xl font-bold uppercase tracking-widest text-xs hover:bg-purple-600 transition-colors flex items-center justify-center gap-2 group">
                 <GraduationCap size={18} className="group-hover:animate-bounce" />
                 Admission Details
               </button>
@@ -80,14 +83,15 @@ const Courses: React.FC = () => {
 
         {/* Support Note */}
         <div className="mt-16 text-center">
-          <div className="inline-block p-1 rounded-full bg-blue-50 px-6 py-2 border border-blue-100">
-            <p className="text-blue-800 text-sm font-medium">
+          <div className="inline-block p-1 rounded-full bg-purple-50 px-6 py-2 border border-purple-100">
+            <p className="text-purple-800 text-sm font-medium">
               Affiliated to Mangalore University & Recognized by UGC
             </p>
           </div>
         </div>
       </div>
     </section>
+    </>
   );
 };
 

@@ -11,6 +11,7 @@ import {
   Flag,
   Globe
 } from 'lucide-react';
+import Navbar2 from '../components/Navbar2';
 
 const NSSSection: React.FC = () => {
   const [activeYear, setActiveYear] = useState<string | null>("2021-22");
@@ -58,6 +59,8 @@ const NSSSection: React.FC = () => {
   ];
 
   return (
+    <>
+    <Navbar2 />
     <div className="max-w-6xl mx-auto px-4 py-16 bg-white font-sans mt-10">
       {/* Header */}
       <div className="text-center mb-16">
@@ -77,11 +80,11 @@ const NSSSection: React.FC = () => {
       <div className="grid lg:grid-cols-3 gap-12">
         {/* Left: Introduction & Special Camp */}
         <div className="lg:col-span-1 space-y-8">
-          <section className="bg-blue-900 text-white p-8 rounded-4xl shadow-xl">
+          <section className="bg-purple-900 text-white p-8 rounded-4xl shadow-xl">
             <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-              <Globe className="text-blue-300" /> About NSS
+              <Globe className="text-purple-300" /> About NSS
             </h2>
-            <p className="text-blue-100 text-sm leading-relaxed mb-6">
+            <p className="text-purple-100 text-sm leading-relaxed mb-6">
               Sponsored by the Ministry of Education & Culture, Govt. of India, our unit has been 
               active since the college's inception, motivating students toward social responsibility.
             </p>
@@ -116,7 +119,7 @@ const NSSSection: React.FC = () => {
         {/* Right: Activity Timeline */}
         <div className="lg:col-span-2">
           <h2 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
-            <Sparkles className="text-blue-600" /> Extension & Outreach Timeline
+            <Sparkles className="text-purple-600" /> Extension & Outreach Timeline
           </h2>
           
           <div className="space-y-4">
@@ -124,7 +127,7 @@ const NSSSection: React.FC = () => {
               <div key={group.year} className="border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
                 <button 
                   onClick={() => setActiveYear(activeYear === group.year ? null : group.year)}
-                  className={`w-full flex justify-between items-center p-6 transition-all ${activeYear === group.year ? 'bg-blue-50 text-blue-900' : 'bg-white text-gray-700 hover:bg-gray-50'}`}
+                  className={`w-full flex justify-between items-center p-6 transition-all ${activeYear === group.year ? 'bg-purple-50 text-purple-900' : 'bg-white text-gray-700 hover:bg-gray-50'}`}
                 >
                   <div className="flex items-center gap-4">
                     <Calendar size={20} />
@@ -137,7 +140,7 @@ const NSSSection: React.FC = () => {
                   <div className="p-6 bg-white space-y-4 animate-in fade-in slide-in-from-top-2">
                     {group.activities.map((act, idx) => (
                       <div key={idx} className="flex flex-col md:flex-row md:items-start border-b border-gray-50 last:border-0 pb-4">
-                        <div className="md:w-1/3 font-bold text-blue-700 text-sm mb-1 md:mb-0">
+                        <div className="md:w-1/3 font-bold text-purple-700 text-sm mb-1 md:mb-0">
                           {act.name}
                         </div>
                         <div className="md:w-2/3 text-gray-600 text-sm">
@@ -157,19 +160,20 @@ const NSSSection: React.FC = () => {
       {/* Visual Indicator of Impact */}
       <div className="mt-16 bg-gray-50 p-8 rounded-3xl flex flex-wrap justify-around gap-8 text-center border border-gray-100">
         <div>
-          <p className="text-3xl font-black text-blue-900">100+</p>
+          <p className="text-3xl font-black text-purple-900">100+</p>
           <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Active Volunteers</p>
         </div>
         <div>
-          <p className="text-3xl font-black text-blue-900">500+</p>
+          <p className="text-3xl font-black text-purple-900">500+</p>
           <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Trees Planted</p>
         </div>
         <div>
-          <p className="text-3xl font-black text-blue-900">20+</p>
+          <p className="text-3xl font-black text-purple-900">20+</p>
           <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Blood Units Donated</p>
         </div>
       </div>
     </div>
+    </>
   );
 };
 

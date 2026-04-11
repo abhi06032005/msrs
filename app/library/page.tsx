@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   AlertCircle
 } from 'lucide-react';
+import Navbar2 from '../components/Navbar2';
 
 const LibrarySection: React.FC = () => {
   const bookStats = [
@@ -31,6 +32,8 @@ const LibrarySection: React.FC = () => {
   ];
 
   return (
+    <>
+    <Navbar2 />
     <div className="max-w-7xl mx-auto px-4 py-16 bg-white font-sans mt-10">
       
       {/* Hero Section */}
@@ -173,6 +176,7 @@ const LibrarySection: React.FC = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

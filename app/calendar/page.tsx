@@ -1,4 +1,5 @@
 "use client";
+import Navbar2 from '../components/Navbar2';
 import React from 'react';
 import { 
   Trophy, 
@@ -35,8 +36,8 @@ const EventCategories: React.FC = () => {
     },
     {
       category: "Academic & Literacy",
-      icon: <Search className="text-blue-600" size={28} />,
-      bg: "bg-blue-50",
+      icon: <Search className="text-purple-600" size={28} />,
+      bg: "bg-purple-50",
       items: [
         { name: "Spell Bee", desc: "Testing linguistic precision and vocabulary." },
         { name: "Cooking Without Fire", desc: "Creative culinary competition focusing on health." },
@@ -56,12 +57,14 @@ const EventCategories: React.FC = () => {
   ];
 
   return (
+    <>
+    <Navbar2 />
     <section className="py-20 px-4 bg-white font-sans">
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-blue-600 font-bold uppercase tracking-[0.2em] text-xs mb-3">Co-Curricular Excellence</h2>
+          <h2 className="text-purple-600 font-bold uppercase tracking-[0.2em] text-xs mb-3">Co-Curricular Excellence</h2>
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
             Vibrant Campus Life
           </h1>
@@ -85,7 +88,7 @@ const EventCategories: React.FC = () => {
               <div className="space-y-6">
                 {group.items.map((item, i) => (
                   <div key={i} className="group cursor-default">
-                    <h4 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
+                    <h4 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-purple-600 transition-colors">
                       {item.name}
                     </h4>
                     <p className="text-gray-600 text-sm leading-relaxed">
@@ -107,7 +110,7 @@ const EventCategories: React.FC = () => {
             { label: "Skill Workshops", value: "15+" }
           ].map((stat, i) => (
             <div key={i} className="text-center p-6 border-r border-gray-100 last:border-0">
-              <div className="text-3xl font-extrabold text-blue-900 mb-1">{stat.value}</div>
+              <div className="text-3xl font-extrabold text-purple-900 mb-1">{stat.value}</div>
               <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">{stat.label}</div>
             </div>
           ))}
@@ -115,6 +118,7 @@ const EventCategories: React.FC = () => {
 
       </div>
     </section>
+    </>
   );
 };
 

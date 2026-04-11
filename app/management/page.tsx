@@ -1,5 +1,6 @@
 import React from 'react';
 import { User, Briefcase, MapPin, Star } from 'lucide-react';
+import Navbar2 from '../components/Navbar2';
 
 interface Member {
   slNo?: number;
@@ -36,7 +37,7 @@ const Management: React.FC = () => {
   ];
 
   const TableHeader = () => (
-    <thead className="bg-blue-900 text-white hidden md:table-header-group">
+    <thead className="bg-purple-900 text-white hidden md:table-header-group">
       <tr>
         <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Name & Address</th>
         <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Designation</th>
@@ -46,10 +47,10 @@ const Management: React.FC = () => {
   );
 
   const Row = ({ member }: { member: Member }) => (
-    <tr className="hover:bg-blue-50 transition-colors border-b border-gray-200 block md:table-row">
+    <tr className="hover:bg-purple-50 transition-colors border-b border-gray-200 block md:table-row">
       <td className="px-6 py-4 block md:table-cell">
         <div className="flex flex-col">
-          <span className="font-bold text-blue-900 text-lg md:text-base">{member.name}</span>
+          <span className="font-bold text-purple-900 text-lg md:text-base">{member.name}</span>
           <span className="text-gray-500 text-sm flex items-start mt-1">
             <MapPin size={14} className="mr-1 mt-1 shrink-0" />
             {member.address}
@@ -57,7 +58,7 @@ const Management: React.FC = () => {
         </div>
       </td>
       <td className="px-6 py-4 block md:table-cell">
-        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 md:bg-transparent md:p-0 md:text-gray-700 md:text-sm italic">
+        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800 md:bg-transparent md:p-0 md:text-gray-700 md:text-sm italic">
           {member.designation}
         </span>
       </td>
@@ -71,6 +72,8 @@ const Management: React.FC = () => {
   );
 
   return (
+    <>
+    <Navbar2 />
     <div className="max-w-6xl mx-auto px-4 py-12 mt-20">
       <div className="flex items-center justify-center mb-10 space-x-4">
         <div className="h-px bg-gray-300 w-16 md:w-32"></div>
@@ -88,7 +91,7 @@ const Management: React.FC = () => {
             
             {/* Administrative Officer Note */}
             <tr className="bg-gray-50 border-y-2 border-gray-200">
-              <td colSpan={3} className="px-6 py-4 italic font-semibold text-blue-800 text-center">
+              <td colSpan={3} className="px-6 py-4 italic font-semibold text-purple-800 text-center">
                 Prof. Y Bhaskar Shetty — Administrative Officer, 'Anughraha', Main Road, Shirva
               </td>
             </tr>
@@ -109,6 +112,7 @@ const Management: React.FC = () => {
         </table>
       </div>
     </div>
+    </>
   );
 };
 

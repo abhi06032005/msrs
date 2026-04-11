@@ -1,50 +1,94 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDownIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navLinks = [
   {
     name: "Institutional",
-    items: [{label:"About Us" , path:"/about-us"}, {label:"Vision & Mission", path:"/vision-mission"},{label:"Committee", path:"/committee"}, {label:"Management", path:"/management"}, {label:"Principal's Desk", path:"/principal-desk"}, {label:"Teaching Staff", path:"/teaching-staff"}],
+    items: [
+      { label: "About Us", path: "/about-us" },
+      { label: "Vision & Mission", path: "/vision-mission" },
+      { label: "Committee", path: "/committee" },
+      { label: "Management", path: "/management" },
+      { label: "Principal's Desk", path: "/principal-desk" },
+      { label: "Teaching Staff", path: "/teaching-staff" },
+    ],
   },
   {
     name: "Academics",
-    items: [{label:"Courses", path:"/courses"}, {label:"Admission Process", path:"/admission"}, {label:"Calendar of Events", path:"/calendar"}, {label:"Library", path:"/library"}],
+    items: [
+      { label: "Courses", path: "/courses" },
+      { label: "Admission Process", path: "/admission" },
+      { label: "Calendar of Events", path: "/calendar" },
+      { label: "Library", path: "/library" },
+    ],
   },
   {
     name: "Campus Life",
-    items: [{label:"Facilities", path:"/facilities"}, {label:"NSS", path:"/nss"}, {label:"Sports & Games", path:"/sports-games"}, {label:"Cultural Activities", path:"/cultural-activities"}, {label:"Rangers & Rovers", path:"/rangers-rovers"}],
+    items: [
+      { label: "Facilities", path: "/facilities" },
+      { label: "NSS", path: "/nss" },
+      { label: "Sports & Games", path: "/sports-games" },
+      { label: "Cultural Activities", path: "/cultural-activities" },
+      { label: "Rangers & Rovers", path: "/rangers-rovers" },
+    ],
   },
   {
     name: "Student Corner",
-    items: [{label:"Scholarships", path:"/scholarship"}, {label:"Placement Cell", path:"/placement-cell"}, {label:"Alumni", path:"/alumni"}, {label:"Examination", path:"/examination"}, {label:"Results", path:"/results"}],
+    items: [
+      { label: "Scholarships", path: "/scholarship" },
+      { label: "Placement Cell", path: "/placement-cell" },
+      { label: "Alumni", path: "/alumni" },
+      { label: "Examination", path: "/examination" },
+      { label: "Results", path: "/results" },
+    ],
   },
 ];
 
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const textColor = scrolled ? "text-slate-800" : "text-white";
 
   return (
-    <nav className="fixed top-0 z-100 w-full border-b border-slate-100 bg-white/90 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+        scrolled 
+          ? "bg-white border-b border-slate-200 py-2 shadow-md" 
+          : "bg-black/20 backdrop-blur-md py-4"
+      }`}
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-8">
         
-        {/* Brand Identity */}
-        <div className="flex items-center gap-3 group cursor-pointer">
-          <div className=" rounded-full bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-100 transition-transform group-hover:rotate-3">
-            <img src="/college_logo.jpg" alt="logo" className="rounded-full h-12 w-12 p-0.5" />
-          </div>
+        {/* Brand */}
+        <div className="flex items-center gap-3 cursor-pointer group">
+          <img src="/college_logo.jpg" alt="logo" className="h-10 w-10 object-contain ring-1 ring-slate-200/50" />
           <div className="flex flex-col">
-            <span className="text-xl font-black leading-none text-slate-900 tracking-tighter">MSRS COLLEGE</span>
-            <span className="text-[11px] font-bold text-blue-600 tracking-[0.2em] uppercase mt-1">Shirva</span>
+            <span className={`text-lg font-bold tracking-tight uppercase ${textColor}`}>
+              MSRS <span className="text-purple-700 font-black">College</span>
+            </span>
+            <span className={`text-[9px] font-bold tracking-[0.3em] uppercase opacity-70 ${textColor}`}>Shirva</span>
           </div>
         </div>
 
-        {/* Navigation - Desktop */}
-        <div className="hidden lg:flex lg:items-center lg:gap-2">
-          <a href="/" className="px-5 py-2 text-[15px] font-bold text-slate-600 hover:text-blue-600 transition-colors">Home</a>
+        {/* Desktop Nav */}
+        <div className="hidden lg:flex lg:items-center lg:gap-1">
+          <a 
+            href="/" 
+            className={`px-4 py-2 text-[13px] font-bold uppercase tracking-wide rounded-sm transition-all duration-200 hover:bg-purple-700 hover:text-white ${textColor}`}
+          >
+            Home
+          </a>
           
           {navLinks.map((link) => (
             <div 
@@ -53,33 +97,33 @@ export default function Navbar() {
               onMouseEnter={() => setActiveMenu(link.name)}
               onMouseLeave={() => setActiveMenu(null)}
             >
-              <button className={`flex items-center gap-1.5 px-5 py-2 text-[15px] font-bold transition-all duration-300 rounded-full ${activeMenu === link.name ? 'text-blue-600 bg-blue-50' : 'text-slate-600 hover:bg-slate-50'}`}>
+              <button 
+                className={`flex items-center gap-1 px-4 py-2 text-[13px] font-bold uppercase tracking-wide rounded-sm transition-all duration-200 ${
+                  activeMenu === link.name 
+                    ? 'bg-purple-700 text-white shadow-lg' 
+                    : `${textColor} hover:bg-purple-700 hover:text-white`
+                }`}
+              >
                 {link.name}
-                <ChevronDownIcon className={`h-4 w-4 transition-transform duration-500 ${activeMenu === link.name ? "rotate-180" : ""}`} />
+                <ChevronDownIcon className={`h-3 w-3 transition-transform ${activeMenu === link.name ? "rotate-180" : ""}`} />
               </button>
 
               <AnimatePresence>
                 {activeMenu === link.name && (
                   <motion.div
-                    initial={{ opacity: 0, y: 12, scale: 0.98 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                    transition={{ duration: 0.2, ease: "circOut" }}
-                    className="absolute left-0 mt-3 w-64 overflow-hidden rounded-3xl border border-slate-100 bg-white p-3 shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="absolute left-0 mt-1 w-60 bg-white border border-slate-200 shadow-xl rounded-sm overflow-hidden"
                   >
-                    <div className="space-y-1">
+                    <div className="flex flex-col p-1">
                       {link.items.map((item) => (
                         <a
                           key={item.label}
-                          href = {item.path}
-                          className="group flex items-center justify-between rounded-xl px-4 py-3 text-[14px] font-bold text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-all"
+                          href={item.path}
+                          className="px-4 py-3 text-[12px] font-bold text-slate-700 uppercase tracking-wider hover:bg-purple-700 hover:text-white transition-colors duration-150 rounded-sm"
                         >
                           {item.label}
-                          <motion.div 
-                            initial={{ scale: 0 }}
-                            whileHover={{ scale: 1 }}
-                            className="h-1.5 w-1.5 rounded-full bg-blue-600 opacity-0 group-hover:opacity-100 transition-all"
-                          />
                         </a>
                       ))}
                     </div>
@@ -90,36 +134,41 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Global Action */}
+        {/* CTA */}
         <div className="hidden lg:block">
-          <button className="group relative flex items-center gap-2 overflow-hidden rounded-full bg-slate-900 px-7 py-3 text-[14px] font-bold text-white transition-all hover:bg-blue-600 shadow-xl shadow-slate-200">
+          <button className={`px-6 py-2.5 text-[12px] font-black uppercase tracking-widest border-2 rounded-sm transition-all ${
+            scrolled 
+              ? "border-slate-900 bg-slate-900 text-white hover:bg-purple-700 hover:border-purple-700" 
+              : "border-white text-white hover:bg-white hover:text-slate-900"
+          }`}>
             Apply Now
-            <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
           </button>
         </div>
 
         {/* Mobile Toggle */}
-        <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-2 text-slate-900 bg-slate-50 rounded-xl">
-          {mobileOpen ? <XMarkIcon className="h-7 w-7" /> : <Bars3Icon className="h-7 w-7" />}
+        <button onClick={() => setMobileOpen(!mobileOpen)} className={`lg:hidden p-2 ${textColor}`}>
+          {mobileOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
         </button>
       </div>
 
-      {/* Mobile Menu - Custom Drawer style */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div 
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 100 }}
-            className="fixed inset-0 top-20 z-50 lg:hidden bg-white px-8 py-10 overflow-y-auto"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "100vh" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="fixed inset-0 top-[60px] z-[110] bg-white lg:hidden overflow-y-auto"
           >
-            <div className="flex flex-col gap-10">
+            <div className="p-6 space-y-6">
               {navLinks.map((link) => (
-                <div key={link.name}>
-                  <h4 className="text-[12px] font-black uppercase tracking-[0.3em] text-blue-600 mb-4">{link.name}</h4>
-                  <div className="flex flex-col gap-5">
+                <div key={link.name} className="border-b border-slate-100 pb-4">
+                  <p className="text-purple-700 text-[10px] font-black uppercase tracking-[0.2em] mb-4">{link.name}</p>
+                  <div className="grid grid-cols-1 gap-2">
                     {link.items.map((item) => (
-                      <a key={item.label} href={item.path} className="text-xl font-bold text-slate-900 active:text-blue-600">{item.label}</a>
+                      <a key={item.label} href={item.path} className="text-sm font-bold text-slate-800 uppercase py-2 hover:text-purple-700">
+                        {item.label}
+                      </a>
                     ))}
                   </div>
                 </div>

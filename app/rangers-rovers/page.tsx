@@ -1,5 +1,6 @@
 import React from 'react';
 import { Shield, User, MapPin, Camera } from 'lucide-react';
+import Navbar2 from '../components/Navbar2';
 
 const RoversRangers = () => {
   // Add your activity images here
@@ -11,6 +12,8 @@ const RoversRangers = () => {
   ];
 
   return (
+    <>
+    <Navbar2 />
     <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 bg-white mt-15">
       
       {/* Header Section */}
@@ -121,6 +124,7 @@ const RoversRangers = () => {
       </section>
 
     </div>
+    </>
   );
 };
 

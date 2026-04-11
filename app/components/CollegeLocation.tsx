@@ -8,7 +8,7 @@ const CollegeLocation = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">
-            Locate Our <span className="text-blue-700">Campus</span>
+            Locate Our <span className="text-purple-700">Campus</span>
           </h2>
           <div className="h-1 w-20 bg-amber-500 mx-auto mt-4 rounded-full"></div>
         </div>
@@ -16,7 +16,7 @@ const CollegeLocation = () => {
         <div className="grid lg:grid-cols-12 gap-0 overflow-hidden rounded-3xl shadow-2xl bg-white border border-slate-200">
           
           {/* Left Info Panel (4 columns) */}
-          <div className="lg:col-span-5 p-8 lg:p-12 bg-linear-to-br from-blue-900 to-indigo-950 text-white flex flex-col justify-between">
+          <div className="lg:col-span-5 p-8 lg:p-12 bg-linear-to-br from-purple-900 to-indigo-950 text-white flex flex-col justify-between">
             <div>
               <h3 className="text-2xl font-bold mb-6">MSRS College, Shirva</h3>
               
@@ -26,7 +26,7 @@ const CollegeLocation = () => {
                     <MapPin className="text-amber-400" size={24} />
                   </div>
                   <div>
-                    <p className="text-sm uppercase tracking-widest text-blue-200 font-semibold">Address</p>
+                    <p className="text-sm uppercase tracking-widest text-purple-200 font-semibold">Address</p>
                     <p className="text-lg">Shirva, Udupi District, Karnataka - 574116</p>
                   </div>
                 </div>
@@ -36,7 +36,7 @@ const CollegeLocation = () => {
                     <Phone className="text-amber-400" size={24} />
                   </div>
                   <div>
-                    <p className="text-sm uppercase tracking-widest text-blue-200 font-semibold">Contact</p>
+                    <p className="text-sm uppercase tracking-widest text-purple-200 font-semibold">Contact</p>
                     <p className="text-lg">+91 820 255 4146</p>
                   </div>
                 </div>
@@ -56,7 +56,7 @@ const CollegeLocation = () => {
             <a 
               href="https://www.google.com/maps/dir/?api=1&destination=Mulki+Sunder+Ram+Shetty+College+Shirva"
               target="_blank"
-              className="mt-12 flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-blue-950 font-bold py-4 px-6 rounded-2xl transition-all transform hover:scale-105 active:scale-95 shadow-lg"
+              className="mt-12 flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-purple-950 font-bold py-4 px-6 rounded-2xl transition-all transform hover:scale-105 active:scale-95 shadow-lg"
             >
               <Navigation2 size={20} fill="currentColor" />
               Open in Google Maps

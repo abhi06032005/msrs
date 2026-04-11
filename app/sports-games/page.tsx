@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import { Trophy, Move, Home, Target, Users, MapPin } from 'lucide-react';
+import Navbar2 from '../components/Navbar2';
 
 const SportsSection: React.FC = () => {
   const facilities = [
@@ -13,7 +14,7 @@ const SportsSection: React.FC = () => {
     {
       title: "400m Athletic Track",
       desc: "A professionally laid track used by athletes for training and university-level meets.",
-      icon: <Target className="text-blue-600" size={24} />,
+      icon: <Target className="text-purple-600" size={24} />,
       stat: "Standard Size"
     },
     {
@@ -25,6 +26,8 @@ const SportsSection: React.FC = () => {
   ];
 
   return (
+    <>
+    <Navbar2 />
     <section className="max-w-7xl mx-auto px-4 py-20 bg-white font-sans mt-10">
       <div className="flex flex-col lg:flex-row gap-16 items-center">
         
@@ -37,7 +40,7 @@ const SportsSection: React.FC = () => {
             </div>
             <h1 className="text-4xl md:text-5xl font-black text-gray-900 leading-tight mb-6">
               College Sports <br /> 
-              <span className="text-blue-700">Infrastructure</span>
+              <span className="text-purple-700">Infrastructure</span>
             </h1>
             <p className="text-gray-600 text-lg leading-relaxed">
               The Physical Education Department, led by our expert Director, ensures that every student 
@@ -48,7 +51,7 @@ const SportsSection: React.FC = () => {
 
           <div className="grid gap-6">
             {facilities.map((item, i) => (
-              <div key={i} className="flex gap-5 p-6 rounded-2xl border border-gray-100 bg-gray-50/50 hover:bg-white hover:shadow-xl hover:border-blue-100 transition-all duration-300">
+              <div key={i} className="flex gap-5 p-6 rounded-2xl border border-gray-100 bg-gray-50/50 hover:bg-white hover:shadow-xl hover:border-purple-100 transition-all duration-300">
                 <div className="h-12 w-12 rounded-xl bg-white shadow-sm flex items-center justify-center shrink-0">
                   {item.icon}
                 </div>
@@ -77,13 +80,13 @@ const SportsSection: React.FC = () => {
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                 />
               </div>
-              <div className="bg-blue-900 rounded-4xl p-8 text-white">
+              <div className="bg-purple-900 rounded-4xl p-8 text-white">
                 <p className="text-3xl font-black mb-1">Rs. 6L+</p>
-                <p className="text-xs font-bold text-blue-300 uppercase tracking-widest">Investment in Kreeda Bhavan</p>
+                <p className="text-xs font-bold text-purple-300 uppercase tracking-widest">Investment in Kreeda Bhavan</p>
               </div>
             </div>
             <div className="space-y-4">
-              <div className="bg-amber-500 rounded-4xl p-8 text-blue-950">
+              <div className="bg-amber-500 rounded-4xl p-8 text-purple-950">
                 <Users size={32} className="mb-4" />
                 <p className="font-bold text-xl leading-tight">Professional Coaching & Support</p>
               </div>
@@ -99,7 +102,7 @@ const SportsSection: React.FC = () => {
           
           {/* Decorative Tag */}
           <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-2xl flex items-center gap-4 border border-gray-100">
-            <div className="h-12 w-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
+            <div className="h-12 w-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center">
                 <MapPin size={24} />
             </div>
             <div>
@@ -110,6 +113,7 @@ const SportsSection: React.FC = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

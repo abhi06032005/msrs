@@ -33,10 +33,10 @@ const cardData = [
 
 const LeadershipSection = () => {
   return (
-    <section className="py-10 bg-gray-50 overflow-hidden">
+    <section className="py-20 bg-slate-50 overflow-hidden">
       <div className="container mx-auto px-6 mb-16 text-center">
         <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
-          Our <span className="text-blue-600">Visionaries</span>
+          Our <span className="text-purple-600">Visionaries</span>
         </h2>
         <p className="text-slate-500 font-medium max-w-2xl mx-auto">
           The pillars of MSRS College whose dedication and foresight continue to inspire our journey toward academic excellence.
@@ -45,8 +45,8 @@ const LeadershipSection = () => {
 
       <div className="relative group">
         {/* Gradient Fades for Smooth Edges */}
-        <div className="absolute inset-y-0 right-0 w-32 bg-lineart-to-l from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
 
         {/* Marquee Container */}
         <div className="flex overflow-hidden">
@@ -63,16 +63,16 @@ const LeadershipSection = () => {
             {[...cardData, ...cardData].map((card, index) => (
               <div 
                 key={index} 
-                className="w-72 mx-6 bg-white rounded-4xl border border-slate-100 p-4 shadow-sm hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-500 group/card"
+                className="w-72 mx-6 bg-white rounded-sm border border-slate-200 p-4 shadow-sm hover:shadow-xl hover:shadow-purple-900/5 transition-all duration-500 group/card"
               >
                 {/* Image Container */}
-                <div className="relative h-80 w-full overflow-hidden rounded-3xl bg-slate-100 mb-6">
+                <div className="relative h-80 w-full overflow-hidden rounded-sm bg-slate-100 mb-6">
                   <img 
                     src={card.image} 
                     alt={card.name} 
                     className="w-full h-full object-cover grayscale group-hover/card:grayscale-0 transition-all duration-700 group-hover/card:scale-105" 
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-slate-900/40 to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-900/40 to-transparent opacity-60" />
                 </div>
 
                 {/* Text Content */}
@@ -80,7 +80,7 @@ const LeadershipSection = () => {
                   <h3 className="text-lg font-black text-slate-900 leading-tight mb-2">
                     {card.name}
                   </h3>
-                  <p className="text-sm font-bold text-blue-600/80 leading-relaxed uppercase tracking-wider italic">
+                  <p className="text-xs font-bold text-purple-600 leading-relaxed uppercase tracking-wider italic">
                     {card.role}
                   </p>
                 </div>
@@ -90,7 +90,7 @@ const LeadershipSection = () => {
         </div>
       </div>
 
-      {/* CSS for Pause on Hover (Tailwind variant) */}
+      {/* CSS for Pause on Hover (Standard Tailwind Approach) */}
       <style jsx>{`
         .group:hover .flex {
           animation-play-state: paused;

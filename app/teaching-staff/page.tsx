@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { Mail, GraduationCap, UserCircle, Copy, Check } from 'lucide-react';
+import Navbar2 from '../components/Navbar2';
 
 interface FacultyMember {
   name: string;
@@ -38,13 +39,15 @@ const TeachingStaff: React.FC = () => {
   };
 
   return (
+    <>
+    <Navbar2 />
     <div className="max-w-7xl mx-auto px-4 py-16 bg-white min-h-screen">
       <div className="text-center mb-16">
-        <h2 className="text-sm font-bold text-blue-600 uppercase tracking-[0.3em] mb-3">Our Faculty</h2>
+        <h2 className="text-sm font-bold text-purple-600 uppercase tracking-[0.3em] mb-3">Our Faculty</h2>
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
           Meet Our Dedicated Educators
         </h1>
-        <div className="h-1 w-20 bg-blue-600 mx-auto rounded-full mb-6"></div>
+        <div className="h-1 w-20 bg-purple-600 mx-auto rounded-full mb-6"></div>
         <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
           Bringing together decades of academic excellence and a passion for 
           mentoring the leaders of tomorrow.
@@ -63,7 +66,7 @@ const TeachingStaff: React.FC = () => {
                 className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
               />
               <div className="absolute top-4 left-4">
-                <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-[10px] font-bold uppercase tracking-widest text-blue-900 rounded-full shadow-sm">
+                <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-[10px] font-bold uppercase tracking-widest text-purple-900 rounded-full shadow-sm">
                   {staff.department}
                 </span>
               </div>
@@ -71,10 +74,10 @@ const TeachingStaff: React.FC = () => {
 
             {/* Content Box */}
             <div className="px-1 grow flex flex-col">
-              <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors leading-tight">
+              <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-purple-600 transition-colors leading-tight">
                 {staff.name}
               </h3>
-              <p className="text-sm font-medium text-blue-700 mb-3 uppercase tracking-wider">{staff.designation}</p>
+              <p className="text-sm font-medium text-purple-700 mb-3 uppercase tracking-wider">{staff.designation}</p>
               
               <div className="flex items-start gap-2 mb-6">
                 <GraduationCap size={16} className="text-gray-400 mt-0.5 shrink-0" />
@@ -85,7 +88,7 @@ const TeachingStaff: React.FC = () => {
               <div className="flex gap-2 mt-auto">
                 <a
                   href={`mailto:${staff.email}?subject=Inquiry from MSRSC Website`}
-                  className="grow flex items-center justify-center gap-2 py-3 bg-gray-900 text-white rounded-xl hover:bg-blue-600 transition-all duration-300 text-[10px] font-bold uppercase tracking-widest"
+                  className="grow flex items-center justify-center gap-2 py-3 bg-gray-900 text-white rounded-xl hover:bg-purple-600 transition-all duration-300 text-[10px] font-bold uppercase tracking-widest"
                 >
                   <Mail size={14} />
                   Send Email
@@ -115,6 +118,7 @@ const TeachingStaff: React.FC = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 

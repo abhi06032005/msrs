@@ -1,5 +1,6 @@
 import React from 'react';
 import { Eye, Target, CheckCircle2, ShieldCheck, Users, Lightbulb } from 'lucide-react';
+import Navbar2 from '../components/Navbar2';
 
 const VisionMission: React.FC = () => {
   const visionPoints = [
@@ -19,9 +20,11 @@ const VisionMission: React.FC = () => {
   ];
 
   return (
+    <>
+    <Navbar2 />
     <section className="py-12 px-4 max-w-6xl mx-auto font-sans mt-30">
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-extrabold text-blue-900 mb-4 tracking-tight">
+        <h2 className="text-4xl font-extrabold text-purple-900 mb-4 tracking-tight">
           Purpose & Path
         </h2>
         <div className="h-1.5 w-24 bg-amber-500 mx-auto rounded-full"></div>
@@ -31,8 +34,8 @@ const VisionMission: React.FC = () => {
         
         {/* Vision Section */}
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 flex flex-col h-full">
-          <div className="bg-blue-900 p-6 flex items-center gap-4">
-            <div className="bg-blue-800 p-3 rounded-lg text-white">
+          <div className="bg-purple-900 p-6 flex items-center gap-4">
+            <div className="bg-purple-800 p-3 rounded-lg text-white">
               <Eye size={32} />
             </div>
             <h3 className="text-2xl font-bold text-white">Our Vision</h3>
@@ -65,7 +68,7 @@ const VisionMission: React.FC = () => {
             <ul className="space-y-5">
               {missionPoints.map((point, index) => (
                 <li key={index} className="flex items-start gap-4">
-                  <CheckCircle2 className="text-blue-900 mt-1 shrink-0" size={20} />
+                  <CheckCircle2 className="text-purple-900 mt-1 shrink-0" size={20} />
                   <p className="text-gray-700 leading-relaxed">
                     {point}
                   </p>
@@ -85,6 +88,7 @@ const VisionMission: React.FC = () => {
         </div>
       </div>
     </section>
+  </>
   );
 };
 

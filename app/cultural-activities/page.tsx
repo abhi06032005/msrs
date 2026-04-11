@@ -1,5 +1,6 @@
 import React from 'react';
 import { Music, Users, Camera, Star } from 'lucide-react';
+import Navbar2 from '../components/Navbar2';
 
 const CulturalActivities = () => {
   // Simply add your image URLs to this array to update the gallery
@@ -13,6 +14,8 @@ const CulturalActivities = () => {
   ];
 
   return (
+    <>
+    <Navbar2 />
     <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 bg-white mt-15">
       {/* Description Section */}
       <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
@@ -97,6 +100,7 @@ const CulturalActivities = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

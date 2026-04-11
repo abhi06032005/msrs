@@ -12,6 +12,7 @@ import {
   BookOpen,
   Globe
 } from 'lucide-react';
+import Navbar2 from '../components/Navbar2';
 
 const CommitteesDashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'internal' | 'statutory' | 'cells'>('internal');
@@ -40,7 +41,7 @@ const CommitteesDashboard: React.FC = () => {
       title: "SC/ST Committee", 
       quota: "15% SC / 3% ST", 
       focus: "Scholarship awareness, career counseling, and remedial support.",
-      icon: <Scale className="text-blue-600" />
+      icon: <Scale className="text-purple-600" />
     },
     { 
       title: "Minority Cell", 
@@ -63,6 +64,8 @@ const CommitteesDashboard: React.FC = () => {
   ];
 
   return (
+    <>
+    <Navbar2 />
     <div className="max-w-7xl mx-auto px-4 py-16 bg-white font-sans mt-10">
       {/* Header */}
       <div className="text-center mb-12">
@@ -77,19 +80,19 @@ const CommitteesDashboard: React.FC = () => {
       <div className="flex flex-wrap justify-center gap-4 mb-12">
         <button 
           onClick={() => setActiveTab('internal')}
-          className={`px-6 py-3 rounded-full font-bold text-sm transition-all ${activeTab === 'internal' ? 'bg-blue-900 text-white shadow-lg' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+          className={`px-6 py-3 rounded-full font-bold text-sm transition-all ${activeTab === 'internal' ? 'bg-purple-900 text-white shadow-lg' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
         >
           Internal Committees
         </button>
         <button 
           onClick={() => setActiveTab('statutory')}
-          className={`px-6 py-3 rounded-full font-bold text-sm transition-all ${activeTab === 'statutory' ? 'bg-blue-900 text-white shadow-lg' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+          className={`px-6 py-3 rounded-full font-bold text-sm transition-all ${activeTab === 'statutory' ? 'bg-purple-900 text-white shadow-lg' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
         >
           Statutory (Kannada/English)
         </button>
         <button 
           onClick={() => setActiveTab('cells')}
-          className={`px-6 py-3 rounded-full font-bold text-sm transition-all ${activeTab === 'cells' ? 'bg-blue-900 text-white shadow-lg' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+          className={`px-6 py-3 rounded-full font-bold text-sm transition-all ${activeTab === 'cells' ? 'bg-purple-900 text-white shadow-lg' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
         >
           Student Welfare Cells
         </button>
@@ -100,7 +103,7 @@ const CommitteesDashboard: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-in fade-in slide-in-from-bottom-4">
           {internalCommittees.map((comm) => (
             <div key={comm.id} className="p-6 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-blue-50 w-10 h-10 rounded-lg flex items-center justify-center mb-4 text-blue-600">
+              <div className="bg-purple-50 w-10 h-10 rounded-lg flex items-center justify-center mb-4 text-purple-600">
                 <ShieldCheck size={20} />
               </div>
               <h3 className="font-bold text-gray-900 mb-2 leading-tight">{comm.name}</h3>
@@ -130,7 +133,7 @@ const CommitteesDashboard: React.FC = () => {
             <tbody className="divide-y divide-gray-100 text-sm">
               {statutoryCommittees.map((item, i) => (
                 <tr key={i} className="hover:bg-gray-50 transition-colors">
-                  <td className="px-6 py-4 font-bold text-blue-900">{item.name}</td>
+                  <td className="px-6 py-4 font-bold text-purple-900">{item.name}</td>
                   <td className="px-6 py-4 text-gray-700">{item.head || item.chair}</td>
                   <td className="px-6 py-4 text-gray-500">{item.role || "Institutional"}</td>
                 </tr>
@@ -152,7 +155,7 @@ const CommitteesDashboard: React.FC = () => {
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{cell.title}</h3>
                   {cell.quota && <span className="inline-block px-3 py-1 bg-white border border-gray-200 rounded-full text-[10px] font-black uppercase text-gray-500 mb-3">{cell.quota}</span>}
-                  {cell.ratio && <span className="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-[10px] font-black uppercase mb-3">Ratio {cell.ratio}</span>}
+                  {cell.ratio && <span className="inline-block px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-[10px] font-black uppercase mb-3">Ratio {cell.ratio}</span>}
                   <p className="text-sm text-gray-600 leading-relaxed">{cell.focus}</p>
                 </div>
               </div>
@@ -160,28 +163,29 @@ const CommitteesDashboard: React.FC = () => {
           </div>
 
           {/* Grievance Table Summary */}
-          <div className="bg-blue-900 rounded-[2.5rem] p-10 text-white">
+          <div className="bg-purple-900 rounded-[2.5rem] p-10 text-white">
             <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
               <AlertTriangle className="text-amber-400" /> Grievance Redressal Mechanism
             </h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 text-sm">
               <div className="space-y-2">
-                <p className="font-bold text-blue-300 uppercase tracking-widest text-[10px]">Low Performance</p>
+                <p className="font-bold text-purple-300 uppercase tracking-widest text-[10px]">Low Performance</p>
                 <p>Remedial classes, personal counseling, and face-to-face interaction.</p>
               </div>
               <div className="space-y-2">
-                <p className="font-bold text-blue-300 uppercase tracking-widest text-[10px]">Scholarship Issues</p>
+                <p className="font-bold text-purple-300 uppercase tracking-widest text-[10px]">Scholarship Issues</p>
                 <p>Dedicated committee refers cases to concerned departments for rapid processing.</p>
               </div>
               <div className="space-y-2">
-                <p className="font-bold text-blue-300 uppercase tracking-widest text-[10px]">Student Welfare</p>
+                <p className="font-bold text-purple-300 uppercase tracking-widest text-[10px]">Student Welfare</p>
                 <p>Bi-weekly suggestion box reviews by SWO and Principal for campus matters.</p>
               </div>
             </div>
           </div>
         </div>
       )}
-    </div>
+  </div>
+  </>
   );
 };
 

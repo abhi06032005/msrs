@@ -33,7 +33,7 @@ const Gallery = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-2 text-blue-600 font-bold tracking-wider uppercase text-sm mb-3"
+              className="flex items-center gap-2 text-purple-600 font-bold tracking-wider uppercase text-sm mb-3"
             >
               <CameraIcon className="w-5 h-5" />
               <span>Campus Life</span>
@@ -44,14 +44,14 @@ const Gallery = () => {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight"
             >
-              Capturing Our <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-indigo-500">Memories</span>
+              Capturing Our <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-700 to-purple-500">Memories</span>
             </motion.h2>
           </div>
           
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 border-2 border-slate-200 text-slate-600 font-bold rounded-xl hover:bg-white hover:border-blue-600 hover:text-blue-600 transition-all duration-300 shadow-sm"
+            className="px-6 py-3 border-2 border-slate-200 text-slate-600 font-bold rounded-xl hover:bg-white hover:border-purple-600 hover:text-purple-600 transition-all duration-300 shadow-sm"
           >
             View Full Gallery
           </motion.button>
@@ -92,7 +92,7 @@ const Gallery = () => {
 
         {/* Mobile-only See More (Visible only on small screens) */}
         <div className="mt-10 md:hidden flex justify-center">
-          <button className="w-full py-4 bg-blue-600 text-white font-bold rounded-2xl">
+          <button className="w-full py-4 bg-purple-600 text-white font-bold rounded-2xl">
             See More Events
           </button>
         </div>
