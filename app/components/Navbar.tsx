@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDownIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useRouter } from "next/navigation";
 
 const navLinks = [
   {
@@ -62,7 +63,7 @@ export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
+  const router = useRouter();
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
@@ -147,11 +148,12 @@ export default function Navbar() {
 
         {/* CTA */}
         <div className="hidden lg:block">
-          <button className={`px-6 py-2.5 text-[12px] font-black uppercase tracking-widest border-2 rounded-sm transition-all ${
+          <button className={`hover:cursor-pointer px-6 py-2.5 text-[12px] font-black uppercase tracking-widest border-2 rounded-sm transition-all ${
             scrolled 
               ? "border-slate-900 bg-slate-900 text-white hover:bg-purple-700 hover:border-purple-700" 
               : "border-white text-white hover:bg-white hover:text-slate-900"
-          }`}>
+          }`}
+          onClick={()=> router.push("https://forms.gle/wQkYRNg6P1L8jig8A")}>
             Apply Now
           </button>
         </div>

@@ -2,6 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
+import { useRouter } from "next/navigation";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -26,6 +27,7 @@ const courses = [
     image: "/bcom.png",
     description: "Build expertise in accounting, economics, and global finance for the modern business sector.",
     tag: "Finance & Accounting",
+    url : "/bcom",
   },
   {
     title: "Computer Applications",
@@ -33,6 +35,7 @@ const courses = [
     image: "/bca.png",
     description: "Master software engineering, cloud computing, and full-stack development concepts.",
     tag: "Technology & Systems",
+      url : "/bca",
   },
   {
     title: "Bachelor of Arts",
@@ -40,10 +43,12 @@ const courses = [
     image: "/ba.png",
     description: "A versatile exploration of humanities and social sciences for the leaders of tomorrow.",
     tag: "Humanities & Arts",
+    url : "/ba",
   },
 ];
 
 const CoursesSection = () => {
+  const router = useRouter();
   return (
     <section className="py-24 bg-white">
       <div className="container mx-auto max-w-7xl px-8">
@@ -86,7 +91,7 @@ const CoursesSection = () => {
           viewport={{ once: true, amount: 0.1 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {courses.map(({ title, abbr, image, description, tag }) => (
+          {courses.map(({ title, abbr, image, description, tag ,url }) => (
             <motion.div
               key={abbr}
               variants={cardVariants}
@@ -119,7 +124,8 @@ const CoursesSection = () => {
                 </p>
                 
                 <button
-                  className="mt-8 flex items-center justify-between w-full px-6 py-4 bg-slate-50 text-slate-900 font-bold text-[11px] uppercase tracking-[0.2em] rounded-sm group-hover:bg-purple-600 group-hover:text-white transition-all duration-300"
+                  className="hover:cursor-pointer mt-8 flex items-center justify-between w-full px-6 py-4 bg-slate-50 text-slate-900 font-bold text-[11px] uppercase tracking-[0.2em] rounded-sm group-hover:bg-purple-600 group-hover:text-white transition-all duration-300"
+                  onClick={()=> router.push(url)}
                 >
                   Explore Curriculum
                   <ArrowRightIcon className="w-4 h-4" />

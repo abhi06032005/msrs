@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDownIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useRouter } from "next/navigation";
 
 const navLinks = [
   {
@@ -60,7 +61,7 @@ const navLinks = [
 export default function Navbar2() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-
+  const router = useRouter();
   // Constants for the stable "Other Pages" look
   const bgColor = "bg-white";
   const textColor = "text-slate-800";
@@ -143,7 +144,10 @@ export default function Navbar2() {
 
           {/* CTA */}
           <div className="hidden lg:block">
-            <button className="px-6 py-2.5 text-[11px] font-black uppercase tracking-[0.2em] border-2 border-slate-900 bg-slate-900 text-white hover:bg-purple-700 hover:border-purple-700 rounded-sm transition-all active:scale-95">
+            <button className="hover:cursor-pointer px-6 py-2.5 text-[11px] font-black uppercase tracking-[0.2em] border-2 border-slate-900 bg-slate-900 text-white hover:bg-purple-700 hover:border-purple-700 rounded-sm transition-all active:scale-95"
+            onClick={()=>{
+              router.push("https://forms.gle/wQkYRNg6P1L8jig8A");
+            }}>
               Apply Now
             </button>
           </div>
