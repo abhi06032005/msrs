@@ -22,7 +22,7 @@ const VisionMission: React.FC = () => {
   return (
     <>
     <Navbar2 />
-    <section className="py-12 px-4 max-w-6xl mx-auto font-sans mt-30">
+    <section className="py-12 px-4 max-w-6xl mx-auto font-sans ">
       <div className="text-center mb-16">
         <h2 className="text-4xl font-extrabold text-purple-900 mb-4 tracking-tight">
           Purpose & Path

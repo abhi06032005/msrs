@@ -6,7 +6,7 @@ const PrincipalProfile: React.FC = () => {
   return (
     <>
     <Navbar2 />
-    <section className="max-w-5xl mx-auto my-12 p-1 px-4 font-sans mt-30">
+    <section className="max-w-5xl mx-auto my-12 p-1 px-4 font-sans ">
       <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 flex flex-col md:flex-row">
         
         {/* Left Side: Profile Image & Info */}

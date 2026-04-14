@@ -54,7 +54,7 @@ const CollegeIntro = () => {
               className="text-5xl md:text-7xl font-bold text-slate-900 mb-8 leading-[1.1] tracking-tight"
             >
               Mulki Sunder Ram <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-violet-500">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-700 to-violet-500">
                 Shetty College
               </span>
             </motion.h2>

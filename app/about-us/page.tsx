@@ -13,7 +13,7 @@ const HistorySection: React.FC = () => {
   return (
     <>
     <Navbar2 />
-    <section className="max-w-5xl mx-auto p-6 md:p-12 bg-white text-gray-800 mt-30">
+    <section className="max-w-5xl mx-auto p-6 md:p-12 bg-white text-gray-800 ">
       {/* Header & Philosophy */}
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-6">Our History</h2>

@@ -6,7 +6,7 @@ const CollegePrayer: React.FC = () => {
   return (
     <>
       <Navbar2 />
-      <section className="py-12 px-4 max-w-4xl mx-auto font-sans mt-30">
+      <section className="py-12 px-4 max-w-4xl mx-auto font-sans ">
         {/* Header Section */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center p-3 bg-purple-100 rounded-full mb-4 text-purple-900">

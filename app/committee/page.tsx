@@ -66,7 +66,7 @@ const CommitteesDashboard: React.FC = () => {
   return (
     <>
     <Navbar2 />
-    <div className="max-w-7xl mx-auto px-4 py-16 bg-white font-sans mt-10">
+    <div className="max-w-7xl mx-auto px-4 py-16 bg-white font-sans ">
       {/* Header */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-black text-gray-900 mb-4 tracking-tight">Governance & Student Support</h1>

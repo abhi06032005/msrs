@@ -28,7 +28,7 @@ const SportsSection: React.FC = () => {
   return (
     <>
     <Navbar2 />
-    <section className="max-w-7xl mx-auto px-4 py-20 bg-white font-sans mt-10">
+    <section className="max-w-7xl mx-auto px-4 py-20 bg-white font-sans ">
       <div className="flex flex-col lg:flex-row gap-16 items-center">
         
         {/* Left Side: Content */}

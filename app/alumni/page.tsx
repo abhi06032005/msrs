@@ -23,7 +23,7 @@ const Alumni: React.FC = () => {
   return (
     <>
       <Navbar2 />
-      <section className="py-12 px-4 max-w-6xl mx-auto font-sans mt-30">
+      <section className="py-12 px-4 max-w-6xl mx-auto font-sans ">
         
         {/* Textual Content Section */}
         <div className="text-center mb-16">

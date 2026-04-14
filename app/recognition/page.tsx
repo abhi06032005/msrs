@@ -4,19 +4,19 @@ import Navbar2 from '../components/Navbar2';
 
 const Recognition: React.FC = () => {
   const documents = [
-    { title: "2F and 12B UPDATED", url: "/docs/2f-12b-updated.pdf" },
-    { title: "AFFILIATION LETTER - 25.01.2023", url: "/docs/affiliation-letter.pdf" },
-    { title: "AISHE 2021-22 ATTESTED - 18 JAN 2023", url: "/docs/aishe-2022.pdf" },
-    { title: "NAAC 2004 CERTIFICATES", url: "/docs/naac-2004.pdf" },
-    { title: "NAAC 2010 CERTIFICATES", url: "/docs/naac-2010.pdf" },
-    { title: "NAAC 2017 CERTIFICATES", url: "/docs/naac-2017.pdf" },
-    { title: "NAAC 2023 CERTIFICATES", url: "/docs/naac-2023.pdf" },
+    { title: "2F and 12B UPDATED", url: "/recognition_pdfs/2F-and-12B-UPDATED.pdf" },
+    { title: "AFFILIATION LETTER - 25.01.2023", url: "/recognition_pdfs/AFFILIATION-LETTER-25-01-2023.pdf" },
+    { title: "AISHE 2021-22 ATTESTED - 18 JAN 2023", url: "/recognition_pdfs/AISHE-2021-22-ATTESTED-18-JAN-2023.pdf" },
+    { title: "NAAC 2004 CERTIFICATES", url: "/recognition_pdfs/NAAC-2004-CERTIFICATES.pdf" },
+    { title: "NAAC 2010 CERTIFICATES", url: "/recognition_pdfs/NAAC-2010-CERTIFICATES.pdf" },
+    { title: "NAAC 2017 CERTIFICATES", url: "/recognition_pdfs/NAAC-2017-certificates.pdf" },
+    { title: "NAAC 2023 CERTIFICATES", url: "/recognition_pdfs/NAAC-2023-certificates.pdf" },
   ];
 
   return (
     <>
       <Navbar2 />
-      <section className="py-12 px-4 max-w-5xl mx-auto font-sans mt-30">
+      <section className="py-12 px-4 max-w-5xl mx-auto font-sans ">
         {/* Header Section */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-extrabold text-purple-900 mb-4 tracking-tight">
@@ -26,7 +26,7 @@ const Recognition: React.FC = () => {
         </div>
 
         {/* 1st Title: Major Achievement (Non-downloadable) */}
-        <div className="bg-gradient-to-r from-purple-900 to-purple-800 rounded-2xl p-8 mb-10 shadow-xl border-b-4 border-amber-500">
+        <div className="bg-linear-to-r from-purple-900 to-purple-800 rounded-2xl p-8 mb-10 shadow-xl border-b-4 border-amber-500">
           <div className="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
             <div className="bg-amber-500 p-4 rounded-full shadow-lg">
               <Award size={48} className="text-white" />

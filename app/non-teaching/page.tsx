@@ -28,7 +28,7 @@ const NonTeachingStaff: React.FC = () => {
   return (
     <>
       <Navbar2 />
-      <section className="py-12 px-4 max-w-6xl mx-auto font-sans mt-30">
+      <section className="py-12 px-4 max-w-6xl mx-auto font-sans ">
         {/* Header Section */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-extrabold text-purple-900 mb-4 tracking-tight">
@@ -76,13 +76,13 @@ const NonTeachingStaff: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {supportStaff.map((staff, index) => (
               <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-50 overflow-hidden group hover:-translate-y-1 transition-all duration-300">
-                <div className="aspect-[4/5] bg-gray-100 relative overflow-hidden">
+                <div className="aspect-4/5 bg-gray-100 relative overflow-hidden">
                     {staff.image ? (
                         <img src={staff.image} alt={staff.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                     ) : (
                         <div className="w-full h-full flex items-center justify-center text-gray-300"><User size={48} /></div>
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute inset-0 bg-linear-to-t from-purple-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
                 <div className="p-5 text-center">
                   <h4 className="font-bold text-gray-800 text-lg">{staff.name}</h4>

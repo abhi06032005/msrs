@@ -128,7 +128,7 @@ const BCADegree: React.FC = () => {
   return (
     <>
       <Navbar2 />
-      <section className="py-12 px-4 max-w-7xl mx-auto font-sans mt-30">
+      <section className="py-12 px-4 max-w-7xl mx-auto font-sans ">
         
         {/* Course Intro */}
         <div className="text-center mb-16">

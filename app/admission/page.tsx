@@ -24,7 +24,7 @@ const AdmissionProcess: React.FC = () => {
   return (
     <>
     <Navbar2 />
-     <div className="max-w-7xl mx-auto px-4 py-16 bg-white font-sans mt-10">
+     <div className="max-w-7xl mx-auto px-4 py-16 bg-white font-sans ">
       
       {/* Header Section */}
       <div className="text-center mb-16">

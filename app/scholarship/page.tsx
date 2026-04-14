@@ -24,7 +24,7 @@ const Scholarships = () => {
   return (
     <>
     <Navbar2 />
-    <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 bg-white mt-20">
+    <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 bg-white ">
       
       {/* Header Section */}
       <div className="mb-16 border-l-8 border-indigo-600 pl-6">

@@ -34,7 +34,7 @@ const LibrarySection: React.FC = () => {
   return (
     <>
     <Navbar2 />
-    <div className="max-w-7xl mx-auto px-4 py-16 bg-white font-sans mt-10">
+    <div className="max-w-7xl mx-auto px-4 py-16 bg-white font-sans ">
       
       {/* Hero Section */}
       <div className="flex flex-col lg:flex-row gap-12 mb-20 items-center">
