@@ -73,7 +73,7 @@ export default function Navbar2() {
       */}
       <div className="h-[72px] w-full" />
 
-      <nav className={`fixed top-0 left-0 right-0 z-[100] ${bgColor} border-b ${borderColor} py-3 shadow-sm`}>
+      <nav className={`fixed top-0 left-0 right-0 z-100 ${bgColor} border-b ${borderColor} py-3 shadow-sm`}>
         <div className="mx-auto flex max-w-7xl items-center justify-between px-8">
           
           {/* Brand */}
@@ -161,7 +161,7 @@ export default function Navbar2() {
               initial={{ opacity: 0, x: "100%" }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: "100%" }}
-              className="fixed inset-0 top-[64px] z-[110] bg-white lg:hidden overflow-y-auto"
+              className="fixed inset-0 top-16 z-110 bg-white lg:hidden overflow-y-auto"
             >
               <div className="p-8 space-y-8">
                 {navLinks.map((link) => (
