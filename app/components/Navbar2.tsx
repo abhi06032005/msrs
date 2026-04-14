@@ -10,16 +10,21 @@ const navLinks = [
     items: [
       { label: "About Us", path: "/about-us" },
       { label: "Vision & Mission", path: "/vision-mission" },
+      { label: "Policies", path: "/policies" },
+      { label: "Recognition", path: "/recognition" },
       { label: "Committee", path: "/committee" },
       { label: "Management", path: "/management" },
       { label: "Principal's Desk", path: "/principal-desk" },
       { label: "Teaching Staff", path: "/teaching-staff" },
+      { label: "Non-Teaching Staff", path: "/non-teaching" },
     ],
   },
   {
-    name: "Academics",
+    name: "Courses",
     items: [
-      { label: "Courses", path: "/courses" },
+      { label: "Bachelor of Computer Applications", path: "/bca" },
+      { label: "Bachelor of Commerce", path: "/bcom" },
+      { label: "Bachelor of Arts", path: "/ba" },
       { label: "Admission Process", path: "/admission" },
       { label: "Calendar of Events", path: "/calendar" },
       { label: "Library", path: "/library" },
@@ -41,8 +46,13 @@ const navLinks = [
       { label: "Scholarships", path: "/scholarship" },
       { label: "Placement Cell", path: "/placement-cell" },
       { label: "Alumni", path: "/alumni" },
-      { label: "Examination", path: "/examination" },
-      { label: "Results", path: "/results" },
+      { label: "PTA", path: "/pta" },
+    ],
+  },
+   {
+    name: "NAAC",
+    items: [
+      { label: "NAAC", path: "/naac" },
     ],
   },
 ];
