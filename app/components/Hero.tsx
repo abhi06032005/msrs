@@ -1,5 +1,6 @@
 import React, { useState, useEffect, CSSProperties, ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 type ImageItem = {
   url: string;
@@ -86,6 +87,8 @@ const ProfessionalHero: React.FC = () => {
   const [index, setIndex] = useState<number>(0);
   const [, setIsLoaded] = useState<boolean>(false);
   const [, setPrevIndex] = useState<number>(0);
+  const [isKannada, setIsKannada] = React.useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -94,6 +97,16 @@ const ProfessionalHero: React.FC = () => {
 
     return () => clearInterval(timer);
   }, []);
+
+  React.useEffect(() => {
+  // Sets a timer to toggle the state every 6 seconds
+  const interval = setInterval(() => {
+    setIsKannada((prev) => !prev);
+  }, 6000);
+
+  // Cleans up the timer if the component unmounts
+  return () => clearInterval(interval);
+}, []);
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -252,51 +265,62 @@ const ProfessionalHero: React.FC = () => {
         </SlideUp>
 
         {/* COLLEGE NAME */}
-        <div style={{ perspective: "700px" }}>
+                <div style={{ perspective: "1000px" }}>
           <div
             style={{
-              fontFamily:
-                "'Cormorant Garamond','Playfair Display',Georgia,serif",
+              fontFamily: isKannada 
+                ? "'Noto Sans Kannada', sans-serif" 
+                : "'Cormorant Garamond','Playfair Display',Georgia,serif",
             }}
           >
-            <div
-              className="block leading-[0.95] text-white
-                         text-4xl sm:text-5xl md:text-[4rem] lg:text-[5.4rem]
-                         font-bold tracking-tight"
+            <motion.div
+              key={isKannada ? "kn-1" : "en-1"}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="block leading-[0.95] text-white text-4xl sm:text-5xl md:text-[4rem] lg:text-[5.4rem] font-bold tracking-tight"
               style={{
-                textShadow:
-                  "0 6px 30px rgba(0,0,0,0.45), 0 2px 10px rgba(0,0,0,0.25)",
+                textShadow: "0 6px 30px rgba(0,0,0,0.45), 0 2px 10px rgba(0,0,0,0.25)",
               }}
             >
-              <AnimatedWord text="Mulki " delay={0.5} />
-              <AnimatedWord text="Sunder " delay={0.72} />
-              <AnimatedWord text="Ram" delay={0.98} />
-            </div>
+              {/* For Kannada, we pass the whole phrase to avoid splitting characters */}
+              {isKannada ? (
+                <span>ಮುಲ್ಕಿ ಸುಂದರ್ ರಾಮ್</span>
+              ) : (
+                <>
+                  <AnimatedWord text="Mulki " delay={0.1} />
+                  <AnimatedWord text="Sunder " delay={0.2} />
+                  <AnimatedWord text="Ram" delay={0.3} />
+                </>
+              )}
+            </motion.div>
 
-            <div
-              className="block leading-[0.95]
-                         text-4xl sm:text-5xl md:text-[4rem] lg:text-[5.4rem]
-                         font-medium tracking-tight"
+            <motion.div
+              key={isKannada ? "kn-2" : "en-2"}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="block leading-[0.95] text-4xl sm:text-5xl md:text-[4rem] lg:text-[5.4rem] font-medium tracking-tight"
               style={{
-                fontStyle: "italic",
-                textShadow:
-                  "0 0 18px rgba(251,191,36,0.28), 0 6px 24px rgba(0,0,0,0.35)",
+                fontStyle: isKannada ? "normal" : "italic",
+                textShadow: "0 0 18px rgba(251,191,36,0.28), 0 6px 24px rgba(0,0,0,0.35)",
               }}
             >
-              <AnimatedWord
-                text="Shetty"
-                delay={1.28}
-                className="text-amber-300"
-              />
-            </div>
+              <span className="text-amber-300">
+                {isKannada ? "ಶೆಟ್ಟಿ" : <AnimatedWord text="Shetty" delay={0.1} />}
+              </span>
+            </motion.div>
 
-            <div className="mt-3">
+            <div className="mt-4">
               <span className="inline-block px-5 py-1.5 rounded-full border border-white/15 bg-white/5 backdrop-blur-md">
-                <AnimatedWord
-                  text="C O L L E G E"
-                  delay={1.6}
+                <motion.div
+                  key={isKannada ? "kn-3" : "en-3"}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   className="text-white/80 text-sm sm:text-base md:text-lg font-light tracking-[0.55em]"
-                />
+                >
+                  {isKannada ? "ಕಾಲೇಜು" : "C O L L E G E"}
+                </motion.div>
               </span>
             </div>
           </div>
@@ -356,6 +380,8 @@ const ProfessionalHero: React.FC = () => {
           <button
             className="px-10 py-3.5 rounded-full text-white border border-white/30
                        backdrop-blur-md hover:bg-white/10 transition-all duration-300"
+            
+            onClick={()=> router.push("/campus")}
           >
             Explore Campus →
           </button>
